@@ -10,8 +10,8 @@ int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    // enquanto choice for igual a 'S' ou 's' o jogo se reiniciará
-    while ((choice == 'S' || choice == 's'))
+    // enquanto option for igual a 'S' ou 's' o jogo se reiniciará
+    while ((option == 'S' || option == 's'))
     {
         // monta as matrizies e os vetores
         for (int l = 0; l < 6; l++)
@@ -27,7 +27,7 @@ int main()
             // monta o tabuleiro
             showBoard(tabuleiro, hConsole, game, jogador1vitories, jogador2vitories);
             // recolhe a resposta do jogador
-            printf("Jogador %d choice a posicao onde deseja jogar: ", jogador);
+            printf("Jogador %d escolha a posicao onde deseja jogar: ", jogador);
             scanf("%d", &column_select);
             fflush(stdin);
             // verifica se a jogada foi feita corretamente
@@ -45,11 +45,11 @@ int main()
                     printf("\nO jogador %d venceu o jogo!!\n\n", jogador);
                     sleep(2);
                     printf("Desejam jogar novamente? S/N: ");
-                    scanf(" %c", &choice);
+                    scanf(" %c", &option);
                     fflush(stdin);
                     Sleep(500);
 
-                    if (choice == 'S' || choice == 's')
+                    if (option == 'S' || option == 's')
                     {
                         break;
                     }
@@ -68,10 +68,10 @@ int main()
                     printf("\nO jogador %d venceu o jogo!!\n\n", jogador);
                     sleep(2);
                     printf("Desejam jogar novamente? S/N: ");
-                    scanf("%c", &choice);
+                    scanf("%c", &option);
                     fflush(stdin);
                     Sleep(500);
-                    if (choice == 'S' || choice == 's')
+                    if (option == 'S' || option == 's')
                     {
                         break;
                     }
@@ -94,11 +94,11 @@ int main()
                 sleep(1);
                 printf("\n\nO jogo empatou!!\n\n");
                 printf("Desejam jogar novamente? S/N: ");
-                scanf("%c", &choice);
+                scanf("%c", &option);
                 fflush(stdin);
                 Sleep(500);
                 // se o jogador digitar 'S' ou 's' o jogo reiniciará
-                if (choice == 'S' || choice == 's')
+                if (option == 'S' || option == 's')
                 {
                     break;
                 }

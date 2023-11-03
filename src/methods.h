@@ -23,7 +23,7 @@
 int jogador = 1;
 int column_select, moves = 0, game = 1, jogador1vitories = 0, jogador2vitories = 0;
 char tabuleiro[line][column];
-char choice = 's';
+char option = 's';
 
 void setConsoleTextColor(HANDLE hConsole, char color)
 {

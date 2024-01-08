@@ -20,8 +20,8 @@
 #define RED_COLOR FOREGROUND_RED
 #define BLUE_COLOR FOREGROUND_BLUE
 
-int jogador = 1;
-int column_select, moves = 0, game = 1, jogador1vitories = 0, jogador2vitories = 0;
+int player = 1;
+int column_select, moves = 0, game = 1, player1vitories = 0, player2vitories = 0;
 char tabuleiro[line][column];
 char option = 's';
 
@@ -41,7 +41,7 @@ void setConsoleTextColor(HANDLE hConsole, char color)
     }
 }
 
-void showBoard(char tabuleiro[line][column], HANDLE hConsole, int game, int jogador1vitories, int jogador2vitories)
+void showBoard(char tabuleiro[line][column], HANDLE hConsole, int game, int player1vitories, int player2vitories)
 {
     printf("\n\n");
     setConsoleTextColor(hConsole, 'w');
@@ -58,9 +58,9 @@ void showBoard(char tabuleiro[line][column], HANDLE hConsole, int game, int joga
             if (l == 1)
             {
                 setConsoleTextColor(hConsole, 'r');
-                printf("\t\tJogador 1 : %d", jogador1vitories);
+                printf("\t\tplayer 1 : %d", player1vitories);
                 setConsoleTextColor(hConsole, 'b');
-                printf("   Jogador 2 : %d", jogador2vitories);
+                printf("   player 2 : %d", player2vitories);
                 setConsoleTextColor(hConsole, 'w');
             }
             printf("\n");
@@ -96,9 +96,9 @@ void showBoard(char tabuleiro[line][column], HANDLE hConsole, int game, int joga
     printf("-------------------------------------------\n");
 }
 
-void updateBoard(char tabuleiro[line][column], int jogador, int column_select)
+void updateBoard(char tabuleiro[line][column], int player, int column_select)
 {
-    char peca = (jogador == 1) ? 'X' : 'O';
+    char peca = (player == 1) ? 'X' : 'O';
     for (int i = 5; i >= 0; i--)
     {
         if (tabuleiro[i][column_select - 1] == ' ')
@@ -119,14 +119,14 @@ bool checkPlay(char tabuleiro[line][column], int column_select)
     return (tabuleiro[0][column_select - 1] == ' ');
 }
 
-bool checkVitory(char tabuleiro[line][column], char jogador)
+bool checkVitory(char tabuleiro[line][column], char player)
 {
     // Verifica na vertical
     for (int i = 0; i < 7; i++)
     {
         for (int x = 0; x < 3; x++)
         {
-            if (tabuleiro[x][i] == jogador && tabuleiro[x + 1][i] == jogador && tabuleiro[x + 2][i] == jogador && tabuleiro[x + 3][i] == jogador)
+            if (tabuleiro[x][i] == player && tabuleiro[x + 1][i] == player && tabuleiro[x + 2][i] == player && tabuleiro[x + 3][i] == player)
             {
                 return true;
             }
@@ -138,7 +138,7 @@ bool checkVitory(char tabuleiro[line][column], char jogador)
     {
         for (int x = 0; x < 4; x++)
         {
-            if (tabuleiro[i][x] == jogador && tabuleiro[i][x + 1] == jogador && tabuleiro[i][x + 2] == jogador && tabuleiro[i][x + 3] == jogador)
+            if (tabuleiro[i][x] == player && tabuleiro[i][x + 1] == player && tabuleiro[i][x + 2] == player && tabuleiro[i][x + 3] == player)
             {
                 return true;
             }
@@ -150,7 +150,7 @@ bool checkVitory(char tabuleiro[line][column], char jogador)
     {
         for (int x = 0; x < 4; x++)
         {
-            if (tabuleiro[i][x] == jogador && tabuleiro[i + 1][x + 1] == jogador && tabuleiro[i + 2][x + 2] == jogador && tabuleiro[i + 3][x + 3] == jogador)
+            if (tabuleiro[i][x] == player && tabuleiro[i + 1][x + 1] == player && tabuleiro[i + 2][x + 2] == player && tabuleiro[i + 3][x + 3] == player)
             {
                 return true;
             }
@@ -162,7 +162,7 @@ bool checkVitory(char tabuleiro[line][column], char jogador)
     {
         for (int x = 3; x < 7; x++)
         {
-            if (tabuleiro[i][x] == jogador && tabuleiro[i + 1][x - 1] == jogador && tabuleiro[i + 2][x - 2] == jogador && tabuleiro[i + 3][x - 3] == jogador)
+            if (tabuleiro[i][x] == player && tabuleiro[i + 1][x - 1] == player && tabuleiro[i + 2][x - 2] == player && tabuleiro[i + 3][x - 3] == player)
             {
                 return true;
             }

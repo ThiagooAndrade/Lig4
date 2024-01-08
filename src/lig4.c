@@ -25,30 +25,29 @@ int main()
         {
             clearScreen();
             // monta o tabuleiro
-            showBoard(tabuleiro, hConsole, game, jogador1vitories, jogador2vitories);
+            showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
             // recolhe a resposta do jogador
-            printf("Jogador %d escolha a posicao onde deseja jogar: ", jogador);
+            printf("player %d escolha a posicao onde deseja jogar: ", player);
             scanf("%d", &column_select);
             fflush(stdin);
             // verifica se a jogada foi feita corretamente
             if (checkPlay(tabuleiro, column_select))
             {
-                updateBoard(tabuleiro, jogador, column_select);
+                updateBoard(tabuleiro, player, column_select);
                 moves++;
                 // verifica se o jogador 1 ganhou
                 if (checkVitory(tabuleiro, 'X'))
                 {
-                    jogador1vitories++;
+                    player1vitories++;
                     game++;
                     clearScreen();
-                    showBoard(tabuleiro, hConsole, game, jogador1vitories, jogador2vitories);
-                    printf("\nO jogador %d venceu o jogo!!\n\n", jogador);
+                    showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
+                    printf("\nO jogador %d venceu o jogo!!\n\n", player);
                     sleep(2);
                     printf("Desejam jogar novamente? S/N: ");
                     scanf(" %c", &option);
                     fflush(stdin);
                     Sleep(500);
-
                     if (option == 'S' || option == 's')
                     {
                         break;
@@ -61,14 +60,14 @@ int main()
                 // verifica se o jogador 2 ganhou
                 if (checkVitory(tabuleiro, 'O'))
                 {
-                    jogador2vitories++;
+                    player2vitories++;
                     game++;
                     clearScreen();
-                    showBoard(tabuleiro, hConsole, game, jogador1vitories, jogador2vitories);
-                    printf("\nO jogador %d venceu o jogo!!\n\n", jogador);
+                    showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
+                    printf("\nO player %d venceu o jogo!!\n\n", player);
                     sleep(2);
                     printf("Desejam jogar novamente? S/N: ");
-                    scanf("%c", &option);
+                    scanf(" %c", &option);
                     fflush(stdin);
                     Sleep(500);
                     if (option == 'S' || option == 's')
@@ -82,7 +81,7 @@ int main()
                 }
                 // se foi o jogador 1 que jogou o próximo será o jogador 2
                 // se foi o jogador 2 que jogou o próximo será o jogador 1
-                jogador = (jogador == 1) ? 2 : 1;
+                player = (player == 1) ? 2 : 1;
             }
 
             // empate do jogo
@@ -90,7 +89,7 @@ int main()
             {
                 game++;
                 clearScreen();
-                showBoard(tabuleiro, hConsole, game, jogador1vitories, jogador2vitories);
+                showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
                 sleep(1);
                 printf("\n\nO jogo empatou!!\n\n");
                 printf("Desejam jogar novamente? S/N: ");

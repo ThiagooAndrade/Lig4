@@ -103,7 +103,7 @@ int main()
                 }
                 else
                 {
-                    exit(1);
+                    exit(EXIT_SUCCESS);
                 }
             }
         }

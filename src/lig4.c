@@ -4,6 +4,17 @@
  *   2023
  */
 
+#define line 6
+#define column 7
+
+#define WHITE_COLOR (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)
+#define RED_COLOR FOREGROUND_RED
+#define BLUE_COLOR FOREGROUND_BLUE
+
+int player = 1;
+int column_select, moves = 0, game = 1, player1vitories = 0, player2vitories = 0;
+char tabuleiro[line][column];
+char option = 's';
 #include "methods.h"
 
 int main()

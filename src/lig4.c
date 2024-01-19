@@ -51,6 +51,7 @@ int main()
                 {
                     player1vitories++;
                     game++;
+                    moves = 0;
                     clearScreen();
                     showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
                     printf("\nO jogador %d venceu o jogo!!\n\n", player);
@@ -73,6 +74,7 @@ int main()
                 {
                     player2vitories++;
                     game++;
+                    moves = 0;
                     clearScreen();
                     showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
                     printf("\nO player %d venceu o jogo!!\n\n", player);
@@ -98,6 +100,7 @@ int main()
             // empate do jogo
             if (moves == 42)
             {
+                moves = 0;
                 game++;
                 clearScreen();
                 showBoard(tabuleiro, hConsole, game, player1vitories, player2vitories);
